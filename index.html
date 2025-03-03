@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Macumba Online 🔮</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #222;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            transition: background 1s ease-in-out;
+        }
+        .container {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: #333;
+            padding: 15px;
+            border-radius: 10px;
+            width: 250px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 5px;
+            margin: 5px 0;
+            border-radius: 5px;
+            border: none;
+            font-size: 14px;
+        }
+        textarea {
+            height: 50px;
+            resize: none;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #d90429;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #ff073a;
+        }
+        h1 {
+            font-size: 20px;
+            text-align: center;
+        }
+        #resultado {
+            margin-top: 10px;
+            font-size: 16px;
+            text-align: center;
+        }
+        /* Efeito de fogo */
+        .fogo {
+            animation: fogo 1.5s infinite alternate;
+        }
+        @keyframes fogo {
+            0% { background: #222; }
+            50% { background: #ff4500; }
+            100% { background: #222; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>🔮 Macumba Online 🔮</h1>
+
+        <label>Nome da Vítima:</label>
+        <input type="text" id="nome" placeholder="Digite o nome">
+
+        <label>Data de Nascimento:</label>
+        <input type="date" id="dataNasc">
+
+        <label>Destino da Pessoa:</label>
+        <textarea id="destino" placeholder="Descreva o que vai acontecer..."></textarea>
+
+        <button onclick="fazerMacumba()">🔥 Fazer Macumba 🔥</button>
+
+        <h2 id="resultado"></h2>
+    </div>
+
+    <script>
+        function fazerMacumba() {
+            let nome = document.getElementById("nome").value;
+            let destino = document.getElementById("destino").value;
+
+            if (nome.trim() === "" || destino.trim() === "") {
+                document.getElementById("resultado").innerHTML = "⚠️ Complete todos os campos para que a macumba tenha efeito!";
+            } else {
+                document.getElementById("resultado").innerHTML = `🔮 ${nome} está fadado a: ${destino} 🔮`;
+                document.body.classList.add("fogo"); // Ativa o efeito de fogo
+                setTimeout(() => {
+                    document.body.classList.remove("fogo"); // Remove o efeito depois de um tempo
+                }, 3000);
+            }
+        }
+    </script>
+
+</body>
+</html>
